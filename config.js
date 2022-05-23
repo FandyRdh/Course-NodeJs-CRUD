@@ -1,6 +1,7 @@
 const mysql = require("mysql")
 
 // DB Credential
+// Import SQL dari file di github, soalnnya ada fuction triggerd di dalem sqlnnya
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
