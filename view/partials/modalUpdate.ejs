@@ -1,0 +1,63 @@
+    <!-- Modal Update-->
+    <form action="/hero/update" method="post">
+      <div class="modal fade" id="modal-updt" tabindex="-1" aria-labelledby="modal-updt" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-IU ">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="img-cover">
+                <img src="/img/1000x500_Silvernail.jpg" alt="">
+              </div>
+              <div class="txtDetailHero">
+                <div class="namaAndRole">
+                  <input type="hidden" name="id" value="<%= hero.data[0].id %>">
+                  <label for="name" class="form-label">Name :</label>
+                  <input type="text" class="name form-control" name="name" value="<%= hero.data[0].name %>" maxlength="20" required>
+                  <div class="form-text">Jangan Panjang-panjang, semburat entar tampilannya hehe.</div>
+                  <label for="role">Choose a Role : </label>
+                  <select class="form-select  form-select-sm role" aria-label=".form-select-sm example" id="role" name="role">
+                    <option value="Carry" <%= result = hero.data[0].role === 'Carry' ? 'selected' : '' %>>Carry</option>
+                    <option value="Jungle" <%= result = hero.data[0].role === 'Jungle' ? 'selected' : '' %>>Jungle</option>
+                    <option value="Roamer" <%= result = hero.data[0].role === 'Roamer' ? 'selected' : '' %>>Roamer</option>
+                  </select>
+                </div>
+                <div class="storyHero">
+                  <label for="story" class="form-label">Story hero / ability :</label>
+                  <textarea class="form-control" type="text" name="story" placeholder="Leave a Story or ability hero" required><%= hero.data[0].story %></textarea>
+                </div>
+              </div>
+              <div class="skillList">
+                <div class="skillHero">
+                  <h4>Skill (A)</h4>
+                  <img src="/img/skillHero.png" alt="">
+                  <label for="skillName_1" class="form-label">Skill Name :</label>
+                  <input type="text" class="SkillName form-control" id=skillName_1 name="skillName_1" value="<%= hero.data[0].skillName_1 %>" required>
+                  <label for="skillDesc_1" class="form-label">Skill Description : </label>
+                  <textarea id="skillDesc_1" class="SkillDesc form-control" name="skillDesc_1" required><%= hero.data[0].skillDesc_1 %></textarea>
+                </div>
+                <div class="skillHero">
+                  <h4>Skill (B)</h4>
+                  <img src="/img/skillHero.png" alt="">
+                  <label for="skillName_2" class="form-label">Skill Name :</label>
+                  <input type="text" class="SkillName form-control" id="skillName_2" name="skillName_2" value="<%= hero.data[0].skillName_2 %>" required>
+                  <label for="skillDesc_2" class="form-label">Skill Description : </label>
+                  <textarea id="skillDesc_2" class="SkillDesc form-control" name="skillDesc_2" required><%= hero.data[0].skillDesc_2 %></textarea>
+                </div>
+                <div class="skillHero">
+                  <h4>Skill (Ultimate)</h4>
+                  <img src="/img/skillHero.png" alt="">
+                  <label for="skillName_3" class="form-label">Skill Name :</label>
+                  <input type="text" class="SkillName form-control" id="skillName_3" name="skillName_3" value="<%= hero.data[0].skillName_3 %>" required>
+                  <label for="skillDesc_3" class="form-label">Skill Description : </label>
+                  <textarea id="skillDesc_3" class="SkillDesc form-control" name="skillDesc_3" required><%= hero.data[0].skillDesc_3 %></textarea>
+                </div>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <input class="btn " type="submit" value="Save changes" onclick="return confirm('Are you sure you want to Update data?')"></input>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>

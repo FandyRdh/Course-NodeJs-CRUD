@@ -1,0 +1,31 @@
+    <!-- Modal Insert -->
+    <form action="/hero/add" method="post">
+      <div class="modal Modal-Ins fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="nameAndRole ">
+                <label for="name" class="form-label">Name :</label>
+                <input class="form-control name" type="text" name="name" placeholder="Isi nama hero" maxlength="20" required>
+                <div id="emailHelp" class="form-text">Jangan Panjang-panjang, semburat entar tampilannya hehe. Project JS pertama </div>
+                <label for="role">Choose a Role : </label>
+                <select class="form-select form-select-sm role" aria-label=".form-select-sm example" id="role" name="role" required>
+                  <option value="Carry">Carry</option>
+                  <option value="Jungle">Jungle</option>
+                  <option value="Roamer">Roamer</option>
+                </select>
+              </div>
+              <div class="storyAbility">
+                <label for="story" class="form-label">Story hero / ability :</label><br>
+                <textarea class="form-control" type="text" name="story" placeholder="Leave a Story or ability hero" required></textarea>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <input type="submit" class="btn btn-Ins" value="Insert Data"></input>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>

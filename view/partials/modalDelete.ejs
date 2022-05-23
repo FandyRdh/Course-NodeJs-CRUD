@@ -1,0 +1,14 @@
+    <!-- Modal Delete-->
+    <div class="modal modal-del fade" id="modalDel" tabindex="-1" aria-labelledby="modalDel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h5>Are you sure you want to delete data?</h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <a href="/hero/remove/<%= hero.data[0].id%>" type="button" class="btn btn-danger">Delete Data</a>
+          </div>
+        </div>
+      </div>
+    </div>

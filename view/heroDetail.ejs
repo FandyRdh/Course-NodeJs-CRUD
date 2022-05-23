@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/style.css">
+  <title><%= hero.data[0].name %> | Detail Hero</title>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="main">
+    <div class="LeftSection">
+      <%- include('partials/sectionLeft') %>
+    </div>
+    <div class="RightSection-h2">
+      <div class="img-cover">
+        <img src="/img/1000x500_Silvernail.jpg" alt="">
+      </div>
+
+      <!-- Data Hero -->
+      <div class="txtDetailHero">
+        <div class="namaAndRole">
+          <div class="name"><%= hero.data[0].name %></div>
+          <div class="role"><%= hero.data[0].role %></div>
+
+        </div>
+        <div class="storyHero">
+          <textarea id="" class="" name="" rows="4" cols="70" readonly readonly><%= hero.data[0].story%></textarea>
+        </div>
+      </div>
+      <!-- Skill-List -->
+      <div class="skillList">
+        <div class="skillHero">
+          <img src="/img/skillHero.png" alt="">
+          <h6 class="SkillName"><%= hero.data[0].skillName_1 %> (A)</h6>
+
+          <textarea id="" class="SkillDesc" name="" rows="4" cols="50" readonly><%= hero.data[0].skillDesc_1 %>.
+          </textarea>
+        </div>
+        <div class="skillHero">
+          <img src="/img/skillHero.png" alt="">
+          <h6 class="SkillName"><%= hero.data[0].skillName_2 %> (B)</h6>
+
+          <textarea id="" class="SkillDesc" name="" rows="4" cols="50" readonly><%= hero.data[0].skillDesc_2 %>.
+          </textarea>
+        </div>
+        <div class="skillHero">
+          <img src="/img/skillHero.png" alt="">
+          <h6 class="SkillName"><%= hero.data[0].skillName_3 %> (ULT)</h6>
+
+          <textarea id="" class="SkillDesc" name="" rows="4" cols="50" readonly><%= hero.data[0].skillDesc_3 %>.
+          </textarea>
+        </div>
+      </div>
+      <div class="btnGroup-action">
+        <a href="/hero/r/All" class="btn-action me-auto"><i data-feather="chevron-left"></i></a>
+        <button class="btn-action" data-bs-toggle="modal" data-bs-target="#modal-updt"><i data-feather="settings"></i></button>
+        <button class="btn-action btnDel" data-bs-toggle="modal" data-bs-target="#modalDel"><i data-feather="trash-2"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal-Partials -->
+  <%- include('partials/modalDelete') %>
+
+  <!-- Modal-Partials -->
+  <%- include('partials/modalUpdate') %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    feather.replace()
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+</body>
+
+</html>
