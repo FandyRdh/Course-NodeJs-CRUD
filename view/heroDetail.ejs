@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Bootstrap demo</title>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="main">
+    <div class="LeftSection">
+      <img src="/img/Img-Cover.png" alt="">
+      <p class="gameDescription">
+        Outplay real opponents in this deep, uncompromising real-time MOBA. Fight with lightning-fast controls using powerful heroes. Destroy the enemy Vain crystal and claim glory! Watch the preview video now to see real gameplay of 3-vs-3 multiplayer battles.
+      </p>
+      <div class="Lfooter">
+        <p>R.I.P</p>
+        <img src="/img/semc_logo.png" alt="">
+      </div>
+    </div>
+    <div class="RightSection-h2">
+      <div class="img-cover">
+        <img src="/img/1000x500_Silvernail.jpg" alt="">
+      </div>
+
+      <!-- Data Hero -->
+      <div class="txtDetailHero">
+        <div class="namaAndRole">
+          <div class="name"><%= hero.data[0].name %></div>
+          <div class="role"><%= hero.data[0].role %></div>
+          
+        </div>
+        <div class="storyHero">
+          <textarea id="" class="" name="" rows="4" cols="70" readonly readonly><%= hero.data[0].story%></textarea>
+        </div>
+      </div>
+      <!-- Skill-List -->
+      <div class="skillList">
+        <div class="skillHero">
+          <img src="/img/skillHero.png" alt="">
+          <h6 class="SkillName"><%= hero.data[0].skillName_1 %></h6>
+
+          <textarea id="" class="SkillDesc" name="" rows="4" cols="50" readonly><%= hero.data[0].skillDesc_1 %>.
+          </textarea>
+        </div>
+        <div class="skillHero">
+          <img src="/img/skillHero.png" alt="">
+          <h6 class="SkillName"><%= hero.data[0].skillName_2 %></h6>
+
+          <textarea id="" class="SkillDesc" name="" rows="4" cols="50" readonly><%= hero.data[0].skillDesc_2 %>.
+          </textarea>
+        </div>
+        <div class="skillHero">
+          <img src="/img/skillHero.png" alt="">
+          <h6 class="SkillName"><%= hero.data[0].skillName_3 %></h6>
+
+          <textarea id="" class="SkillDesc" name="" rows="4" cols="50" readonly><%= hero.data[0].skillDesc_3 %>.
+          </textarea>
+        </div>
+      </div>
+      <!--  -->
+
+      <div class="btnGroup-action" >
+        <a href="/hero/r/All" class="btn-action me-auto"><i  data-feather="chevron-left" ></i></a>
+        
+        <button  type="button" class="btn btn-primary btn-action" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i data-feather="settings" ></i></button>
+        <a href="/hero/remove/<%= hero.data[0].id%>" class="btn-action btnDel" onclick="return confirm('Are you sure you want to delete data?')"><i  data-feather="trash-2" ></i></a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+    <!-- Modal -->
+    <form action="/hero/update" method="post">
+      <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-IU">
+          <div class="modal-content">
+            <!-- <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div> -->
+            <div class="modal-body">
+              <div class="img-cover">
+                <img src="/img/1000x500_Silvernail.jpg" alt="">
+              </div>
+              <div class="txtDetailHero">
+                <div class="namaAndRole">
+                  <input type="hidden" name="id"  value="<%= hero.data[0].id %>">
+                  <input type="text" class="name" name="name" value="<%= hero.data[0].name %>" required>
+                <select class="form-select role" id="role" name="role" aria-label="Default select example">
+                  <option value="Roamer" disabled>Masih Blm Kelar tapi jalan hehe</option>
+                  <option value="Carry" <%= result = hero.data[0].role === 'Carry' ? 'selected' : '' %>>Carry</option>
+                  <option value="Jungle" <%= result = hero.data[0].role === 'Jungle' ? 'selected' : '' %>>Jungle</option>
+                  <option value="Roamer" <%= result = hero.data[0].role === 'Roamer' ? 'selected' : '' %>>Roamer</option>
+                </select>
+                </div>
+                <div class="storyHero">
+                  <textarea id="story" class="" name="story" rows="4" cols="70" required><%= hero.data[0].story %></textarea>
+                </div>
+              </div>
+              <div class="skillList">
+                <div class="skillHero">
+                  <img src="/img/skillHero.png" alt="">
+                  <input type="text" class="SkillName" name="skillName_1" value="<%= hero.data[0].skillName_1 %>" required>
+        
+                  <textarea id="" class="SkillDesc" name="skillDesc_1" rows="4" cols="50" required ><%= hero.data[0].skillDesc_1 %></textarea>
+                </div>
+                <div class="skillHero">
+                  <img src="/img/skillHero.png" alt="">
+                  <input type="text" class="SkillName" name="skillName_2" value="<%= hero.data[0].skillName_2 %>" required>
+        
+                  <textarea id="" class="SkillDesc" name="skillDesc_2" rows="4" cols="50" required ><%= hero.data[0].skillDesc_2 %></textarea>
+                </div>
+                <div class="skillHero">
+                  <img src="/img/skillHero.png" alt="">
+                  <input type="text" class="SkillName" name="skillName_3" value="<%= hero.data[0].skillName_3 %>" required>
+        
+                  <textarea id="" class="SkillDesc" name="skillDesc_3" rows="4" cols="50" required ><%= hero.data[0].skillDesc_3 %></textarea>
+                </div>
+              </div>
+    
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <input  class="btn btn-primary" type="submit" value="Save changes" onclick="return confirm('Are you sure you want to Update data?')"></input>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    
+
+
+
+
+
+
+
+
+  <script>
+    feather.replace()
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+</body>
+
+</html>

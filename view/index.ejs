@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css"   href="/css/style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HERO LIST</title>
+
+  </head>
+  <body>
+    <h1><%= heroes.title %></h1>
+    <table>
+      <tr>
+        <th>id</th>
+        <th>nama</th>
+        <th>role</th>
+        <th>action</th>
+        <th>action</th>
+      </tr>
+      <% for(let i = 0; i < heroes.data.length; i++) { %>
+      <tr>
+        <td><%= heroes.data[i].id %></td>
+        <td><%= heroes.data[i].name %></td>
+        <td><%= heroes.data[i].role %></td>
+        <td>
+            <a href="/hero/<%= heroes.data[i].id%>">action</a>
+        </td>
+        <td>
+            <form action="/hero/remove" method="post">
+                <input type="hidden"  name="id" value="<%= heroes.data[i].id %>">
+                <input type="submit" value="remove">
+            </form>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+    <br>
+    <br>
+    <br>
+    <form action="hero/add" method="post">
+        <input type="text" name="name" placeholder="Isi nama hero" />
+        <input type="text" name="role" placeholder="Isi role" />
+        <input type="submit" value="update">
+    </form>
+  </body>
+</html>

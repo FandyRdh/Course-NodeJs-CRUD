@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css"   href="/css/style.css">
+    <title>Bootstrap demo</title>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="main">
+          <div class="LeftSection">
+              <img src="/img/Img-Cover.png" alt="">
+              <p class="gameDescription">
+                Outplay real opponents in this deep, uncompromising real-time MOBA. Fight with lightning-fast controls using powerful heroes. Destroy the enemy Vain crystal and claim glory! Watch the preview video now to see real gameplay of 3-vs-3 multiplayer battles. 
+              </p>
+              <div class="Lfooter ">
+                  <p>R.I.P</p>
+                  <img src="/img/semc_logo.png" alt="">
+              </div>
+          </div>
+          <div class="RightSection">
+            <h6>HERO</h6>
+            <div class="RoleGroup">
+                <!-- <p style="color: #DEA103;">ALL</p> -->
+                <a href="/hero/r/All"   >
+                    <p <%= result = heroes.role === 'All' ? 'style=color:#DEA103;' : '' %>>ALL</p>
+                </a>
+                <a href="/hero/r/Carry">
+                    <p <%= result = heroes.role === 'Carry' ? 'style=color:#DEA103;' : '' %>>Carry</p>
+                </a>
+                <a href="/hero/r/Jungle">
+                    <p <%= result = heroes.role === 'Jungle' ? 'style=color:#DEA103;' : '' %>>Jungle</p>
+                </a>
+                <a href="/hero/r/Roamer">
+                    <p <%= result = heroes.role === 'Roamer' ? 'style=color:#DEA103;' : '' %>>Roamer</p>
+                </a>
+            </div>
+            <div class="heroList align-content-start flex-wrap">
+               
+            <% for(let i = 0; i < heroes.data.length; i++) { %> 
+                <a href="/hero/<%= heroes.data[i].id%>" style="text-decoration: none;">
+                    <div class="hero" style="background-image: url('/img/1000x500_Silvernail.jpg');">
+                        <div class="txtHero">
+                            <div class="name "><%= heroes.data[i].name %></div>
+                            <div class="role"><%= heroes.data[i].role %></div>
+                            <div class="desc"><%= heroes.data[i].story.substring(0,90) %>.</div>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
+            </div>
+            <div class="fab"  data-bs-toggle="modal" data-bs-target="#exampleModal"><i data-feather="plus" class="align-self-center"></i></div>
+          </div>
+      </div>
+
+      <!-- Button trigger modal -->
+    
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="/hero/add" method="post">
+                <div class="modal-body">
+  
+
+                    <label for="name" class="form-label">Name :</label>
+                    <input class="form-control"  type="text" name="name" placeholder="Isi nama hero" required>
+                    <div id="emailHelp" class="form-text">Jangan Panjang2 hehe, semburat entar tampilannya hehes</div>
+                    <label for="role">Choose a Role : </label>
+                       <br>
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="role" name="role" required>
+                            <!-- <option selected disabled>Open this select menu</option> -->
+                            <option value="Carry">Carry</option>
+                            <option value="Jungle">Jungle</option>
+                            <option value="Roamer">Roamer</option>
+                          </select>
+                        <label for="story" class="form-label">Story hero / ability :</label><br>
+                        <input class="form-control" type="text" name="story" placeholder="Isi ability hero" requiredrequired>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" clsass="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" clsass="btn btn-primary" value="Add Data" onclick="return confirm('Are you sure you want to insert data?')"></input>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+      <script>
+        feather.replace()
+      </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+</body>
+</html>
