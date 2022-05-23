@@ -23,7 +23,7 @@ exports.getHero = (response) => {
 exports.getHeroByRole = (role,response) => {
   let sql = '';
   if(role === 'All'){
-     sql = `SELECT * FROM hero`;
+     sql = `SELECT * FROM hero ORDER BY id desc;`;
   }else{
      sql = `SELECT * FROM hero WHERE role='${role}'`;
   }
