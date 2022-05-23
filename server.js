@@ -12,7 +12,9 @@ server.use("/hero",heroController)
 server.use(express.static('public'));
 
 server.use("/",  (request,respones) => {
-    respones.send("MAIN SERVER SUCESS OK!")
+    // respones.send("MAIN SERVER SUCESS OK!")
+    respones.redirect(`/hero/r/All`)
+    respones.end();
 })
 
 
